@@ -1,26 +1,6 @@
 
 // covid19 update
-const baseURL = "https://covid19-api.org/api/status/"
-function getCovidData(type,cb) {
-    var xhr = new XMLHttpRequest();
-    xhr.open("GET",baseURL + type);
-    xhr.send();
 
-    xhr.onreadystatechange = function() {
-        if (this.readyState == 4 && this.status == 200) {
-            cb(JSON.parse(this.responseText));
-        }
-    };
-}
-function writeToDocument(type) {
-    var el = document.getElementById("data");
-    el.innerHTML = '';
-    getCovidData(type, function(data) {
-    //    data.forEach(function(item){
-            el.innerHTML += `<p>${data.country} ${data.cases}</p>`;
-    //});
-})
-}
 
 // Countries
 /* 
@@ -56,7 +36,7 @@ $(document).ready(function(){
                     <td colspan="3">As of ${new Date(weatherData[0].dt).toLocaleTimeString("en-US")}</td>
                     </tr>
                     <tr>
-                        <td colspan="2">${Math.round((weatherData[0].main.temp)-273.15)} &#176;C</td>
+                        <td id="weatherTempVal" colspan="2">${Math.round((weatherData[0].main.temp)-273.15)} <span>&#176;C</span></td>
                         <td><img src="https://openweathermap.org/img/wn/${weatherData[0].weather[0].icon}@2x.png"/></td>
                     </tr>
                     <tr>
@@ -117,8 +97,8 @@ $(document).ready(function(){
     }
 
     function fetchRestCountriesInformation(){
-        const city ="yaounde";
-        const isoTwoCode = "cm";
+        const city ='yaounde';
+        const isoTwoCode = 'cm';
         const urlRestCountry = 'https://restcountries.eu/rest/v2/alpha/'+isoTwoCode;
         const urlCovidData = 'https://covid19-api.org/api/status/'+isoTwoCode;
         const urlWeatherData = 'https://api.openweathermap.org/data/2.5/weather?q='+city+'&appid=dfef8e6748c0490f42caed2456ead4a1';
@@ -145,32 +125,50 @@ $(document).ready(function(){
        var popularCities = ["Yaoundé","Douala","Garoua"];
         return `
         <div class="row">
-                <div class="col">
-                    <h2>Popular Cities</h2>
-                </div>   
+            <div class="col">
+                <h2>Popular Cities</h2>
+            </div>   
+        </div>
+        <div class="row">
+            <div class="col-sm-4">
+                <div class="img-thumbnail">
+                    <div class="box">
+                        <div class="content"> 
+                            <img src="${photosCities.results[0].urls.regular}" class="card-img-top" alt="${photosCities.results[0].alt_description}">
+                        </div> 
+                    </div>
+                    <div class="caption">
+                        <h5>${popularCities[0]}</h5>
+                    </div>
+                </div>
             </div>
-            <div class="row">
-                <div class="card-deck">
-                    <div class="card">
-                        <img src="${photosCities.results[0].urls.regular}" class="card-img-top" alt="${photosCities.results[0].alt_description}">
-                        <div class="card-title">
-                            <h5 class="card-title">${popularCities[0]}</h5>
-                        </div>
+            <div class="col-sm-4">
+                <div class="img-thumbnail">
+                    <div class="box">
+                        <div class="content"> 
+                            <img src="${photosCities.results[1].urls.regular}" class="card-img-top" alt="${photosCities.results[1].alt_description}">
+                        </div> 
                     </div>
-                    <div class="card">
-                        <img src="${photosCities.results[1].urls.regular}" class="card-img-top" alt="${photosCities.results[1].alt_description}">
-                        <div class="class="card-footer"">
-                        <h5 class="card-title">${popularCities[1]}</h5>
-                        </div>
+                    <div class="caption">
+                        <h5>${popularCities[1]}</h5>
                     </div>
-                    <div class="card">
-                        <img src="${photosCities.results[2].urls.regular}" class="card-img-top" alt="${photosCities.results[2].alt_description}">
-                        <div class="">
-                        <h5 class="card-title">${popularCities[2]}</h5>
-                        </div>
-                    </div>
+                </div>
             </div>
+            <div class="col-sm-4">
+                <div class="img-thumbnail">
+                    <div class="box">
+                        <div class="content"> 
+                            <img src="${photosCities.results[2].urls.regular}" class="card-img-top" alt="${photosCities.results[2].alt_description}">
+                        </div> 
+                    </div>
+                    <div class="caption">
+                        <h5>${popularCities[2]}</h5>
+                    </div>
+                </div>
+            </div>
+        </div>
         `}
+
      function photosTopPlacesHTML(photosPlaces){
        var topPlaces = ["Waza zoo - Garoua","Douche Place - Douala","Beach - Kribi"];
         return `
@@ -178,29 +176,47 @@ $(document).ready(function(){
                 <div class="col">
                     <h2>Top three places to visit</h2>
                 </div>  
+        </div>
+        <div class="row">
+            <div class="col-sm-4">
+                <div class="img-thumbnail">
+                    <div class="box">
+                        <div class="content"> 
+                            <img src="${photosPlaces.results[3].urls.regular}" class="card-img-top" alt="${photosPlaces.results[3].alt_description}">
+                        </div> 
+                    </div>
+                    <div class="caption">
+                        <h5>${topPlaces[0]}</h5>
+                    </div>
+                </div>
+            </div> 
+            <div class="col-sm-4">
+                <div class="img-thumbnail">
+                    <div class="box">
+                        <div class="content"> 
+                            <img src="${photosPlaces.results[4].urls.regular}" class="card-img-top" alt="${photosPlaces.results[4].alt_description}">
+                        </div> 
+                    </div>
+                    <div class="caption">
+                        <h5>${topPlaces[1]}</h5>
+                    </div>
+                </div>
             </div>
-            <div class="row">
-                <div class="card-deck">
-                    <div class="card">
-                        <img src="${photosPlaces.results[3].urls.regular}" class="card-img-top" alt="${photosPlaces.results[3].alt_description}">
-                        <div class="card-title">
-                            <h5 class="card-title">${topPlaces[0]}</h5>
-                        </div>
+            <div class="col-sm-4">
+                <div class="img-thumbnail">
+                    <div class="box">
+                        <div class="content"> 
+                            <img src="${photosPlaces.results[5].urls.regular}" class="card-img-top" alt="${photosPlaces.results[5].alt_description}">
+                        </div> 
                     </div>
-                    <div class="card">
-                        <img src="${photosPlaces.results[4].urls.regular}" class="card-img-top" alt="${photosPlaces.results[4].alt_description}">
-                        <div class="class="card-footer"">
-                        <h5 class="card-title">${topPlaces[1]}</h5>
-                        </div>
+                    <div class="caption">
+                        <h5>${topPlaces[2]}</h5>
                     </div>
-                    <div class="card">
-                        <img src="${photosPlaces.results[5].urls.regular}" class="card-img-top" alt="${photosPlaces.results[5].alt_description}">
-                        <div class="">
-                        <h5 class="card-title">${topPlaces[2]}</h5>
-                        </div>
-                    </div>
-            </div>
+                </div>
+            </div>   
+        
         `}  
+    
     function fetchPhotosUnsplash(){
         const city ="cameroon";
         const urlUnsplash = 'https://api.unsplash.com/search/photos?query='+city+'&client_id=SwMNKvf-QEsIHr99Onvq9nUQ0IeO6bVMuoPaNNKDH0E';
@@ -228,22 +244,6 @@ $(document).ready(function(){
     fetchRestCountriesInformation();
     fetchPhotosUnsplash();
 
-    //$.getJSON("https://restcountries.eu/rest/v2/alpha/cm", function(result){
-       // $("#country-name").html(result.name);
-     // console.log(result);
-    //});
-    /*
-    $.getJSON ('https://covid19-api.org/api/status/cm', function(data){
-         console.log(data);
-     });
-     $.getJSON ( 'https://api.unsplash.com/search/photos?query=cameroon&client_id=SwMNKvf-QEsIHr99Onvq9nUQ0IeO6bVMuoPaNNKDH0E', function(data){
-         console.log(data);
-     });
-  
-      $.getJSON ('https://api.openweathermap.org/data/2.5/weather?q=yaounde&appid=dfef8e6748c0490f42caed2456ead4a1', function(data){
-         console.log(data);
-     });
-    */
 });
 /*
      fetch('https://api.openweathermap.org/data/2.5/weather?q=toronto&appid=dfef8e6748c0490f42caed2456ead4a1')
