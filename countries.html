@@ -8,75 +8,81 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/hover.css/2.1.1/css/hover-min.css" type="text/css" /> 
     <link rel="stylesheet" type ="text/css" href="assets/css/maps.css"> 
     <link rel="stylesheet" type ="text/css" href="assets/css/styles.css"> 
-    <title>discover Country</title>
+    <title>discover Cameroon</title>
   </head>
   <body>
-    <!-- Navigation menu-->  
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" href="#">Africa lands</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNavDropdown">
-            <ul class="navbar-nav">
-            <li class="nav-item active">
-                <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-            </li>
-            <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Destinations
-                </a>
-                <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                <a class="dropdown-item" href="#">Cameroon</a>
-                <a class="dropdown-item" href="#">Egypt</a>
-                <a class="dropdown-item" href="#">Ethiopia</a>
-                <a class="dropdown-item" href="#">Senegal</a>
-                <a class="dropdown-item" href="#">Zambia</a>
-                </div>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">Gallery</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">Contact us</a>
-            </li>
-            </ul>
+      <header>       
+        <!-- Navigation menu-->  
+        <nav class="navbar fixed-top navbar-expand-lg navbar-dark nav-bg">
+            <a class="navbar-brand" href="index.html">Africa lands</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                <ul class="navbar-nav">
+                <li class="nav-item active">
+                    <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Destinations
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                    <a class="dropdown-item" href="cameroon.html">Cameroon</a>
+                    <a class="dropdown-item" href="egypt.html">Egypt</a>
+                    <a class="dropdown-item" href="ethiopia.html">Ethiopia</a>
+                    <a class="dropdown-item" href="senegal.html">Senegal</a>
+                    <a class="dropdown-item" href="zambia.html">Zambia</a>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Contact us</a>
+                </li>
+                </ul>
+            </div>
+        </nav>
+        <!-- top image-->  
+        <div class="header-image">
+        <img class="img-fluid" src="assets/img/foumbot-cameroon.jpg"   alt="Foumbot, Noun Valley - Cameroun">
+         <div class="centered-text"></div>
         </div>
-    </nav>
-    <!-- top image-->  
-    <div>
-    <img src="assets/img/slideshow-img1-alt.jpg" width="100%" height="360" class="" alt="Responsive image">
-    </div>   
-    <div class="container-lg">
+      </header>   
+    <div class="container-lg main-bg">
+        <div class="padding-40"></div>
         <section id="about-country"></section>
+        <div class="margin-40"></div>
         <section id="popular-cities"></section>
+        <div class="margin-20"></div>
         <section id="top-places"></section>
+        <div class="margin-20"></div>
         <section>
             <div class="row">
                 <div class="col">
-                    <h2>Where to sleep</h2>
-                </div>    
+                    <h2>Where to sleep  <i class="fas fa-bed"></i></h2>
+                </div> 
+                <div class="margin-40"></div>   
             </div> 
+            
+            <div class="form-row">
+                <div class="form-group col-6 col-sm-4">
+                <label for="autocomplete">Find an Hotel in :</label>
+                <input type="text" class="form-control" id="autocomplete" placeholder="Enter a city">
+                </div>
+            <div id="controls" class="form-group col-6 col-sm-4">
+                <label for="country">Country</label>
+                <select id="country" class="form-control">
+                    <option value="all">All</option>
+                    <option value="cm" selected>Cameroon</option>
+                    <option value="eg">Egypt</option>
+                    <option value="et">Ethiopia</option>
+                    <option value="sn">Senegal</option>
+                    <option value="zm">Zambia</option>
+                </select>
+            </div>
+        </div>
+
             <div class="row">
                 <div class="col-sm-8">
-                    <div class="hotel-search">
-                    <div id="findhotels">Find hotels in:</div>
-                    <div id="locationField">
-                        <input id="autocomplete" placeholder="Enter a city" type="text" />
-                    </div>
-
-                    <div id="controls">
-                        <select id="country">
-                        <option value="all">All</option>
-                        <option value="cm" selected>Cameroon</option>
-                        <option value="eg">Egypt</option>
-                        <option value="et">Ethiopia</option>
-                        <option value="sn">Senegal</option>
-                        <option value="zm">Zambia</option>
-                        
-                        </select>
-                    </div>
-                    </div>
                     <div id="mymap"></div>
                     <div style="display: none">
                     <div id="info-content">
@@ -104,21 +110,42 @@
                         </table>
                     </div>
                     </div>
+                <div class=" margin-40"></div>
                 </div>  
-                    <div id="listing" class="col-sm-4">
-                            <table id="resultsTable">
-                                <tbody id="results"></tbody>
-                            </table>
-                    </div>  
-                </div>   
+                <div id="listing" class="col-sm-4">
+                    <table id="resultsTable">
+                        <tbody id="results"></tbody>
+                    </table>
+                <div class=" margin-40"></div>
+                </div>  
+            </div>   
         </section>
     </div>
     <footer>
-        <div class="container-fluid">
+        <div class="container-fluid nav-bg">
             <div class="row">
-                <div class="col-sm-4">1</div>
-                <div class="col-sm-4">2</div>
-                <div class="col-sm-4">3</div>
+                <div class="col-sm-4 footer-card">
+                    <h5><a href="index.html">Africa lands</a></h5>
+                </div>
+                <div class="col-sm-4 footer-card">
+                    <h5>Destinations</h5>
+                    <ul>
+                        <li>Nigeria</li>
+                        <li>Tunisia</li>
+                        <li>South Africa</li>
+                    </ul>
+                </div>
+                <div class="col-sm-4 footer-card">
+                    <h5>follow us on our social medias</h5>
+                    <p class="social-icons">
+                        <a href="https://www.twitter.com/" target="_blank"> <i class="fab fa-twitter-square"></i></a>   
+                       <a href="https://www.facebook.com/" target="_blank">  <i class="fab fa-facebook-square"></i></a>  
+                        <a href="https://www.instagram.com/" target="_blank"> <i class="fab fa-instagram-square"></i> </a>
+                    </p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12 text-center copyright-footer"><i class="far fa-copyright"></i> 2020 Eezy Web Inc.</div>
             </div>
         </div>
         
@@ -134,7 +161,6 @@
       defer
     ></script>
      <script src="assets/js/countries.js"></script> 
-     <script src="assets/js/maps.js"></script> 
     
 
   </body>

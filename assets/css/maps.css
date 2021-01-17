@@ -1,0 +1,77 @@
+#map {
+        height: 32rem;
+      }
+/*
+CSS from google Maps Places API
+*/
+      /* Always set the map height explicitly to define the size of the div
+       * element that contains the map. */
+      #mymap {
+        height: 32rem;
+      }
+
+      /* Optional: Makes the sample page fill the window. */
+    
+
+      table {
+        font-size: 12px;
+      }
+
+      #mymap{
+        width: 100%;
+      }
+
+      #listing {
+        width: 90%;
+        height:32rem;
+        cursor: pointer;
+        overflow-x: hidden;
+      }
+
+      #controls {
+        -webkit-box-flex: 1 1 140px;
+        -ms-flex: 1 1 140px;
+        flex: 1 1 140px;
+      }
+
+      #autocomplete {
+        width: 100%;
+      }
+
+      #country {
+        width: 100%;
+      }
+
+      .placeIcon {
+        width: 1.25rem;
+        height: 2rem;
+        margin: 4px;
+      }
+
+      .hotelIcon {
+        width: 1.5rem;
+        height: 1.5rem;
+      }
+
+      #resultsTable {
+        border-collapse: collapse;
+        width: 90%;
+      }
+
+      #rating {
+        font-size: 0.8rem;
+        font-family: Arial Unicode MS;
+      }
+
+      .iw_table_row {
+        height: 1.12rem;
+      }
+
+      .iw_attribute_name {
+        font-weight: bold;
+        text-align: right;
+      }
+
+      .iw_table_icon {
+        text-align: right;
+      }
