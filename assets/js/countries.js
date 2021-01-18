@@ -1,23 +1,139 @@
 
 
 $(document).ready(function(){
-    
-    const country ="cameroon";
+    const pageCountry = document.body.id;
+    console.log("page country is "+pageCountry);
+    const country =pageCountry;
     $(".centered-text").html(country);
     //country iso two code
-    const isoTwoCode = 'cm';
+    var isoTwoCode = "";
+    const manyIsoTwoCode = ['cm','eg','et','sn','zm'];
     // capital of the country
-    const city ='yaounde';
-    const popularCities = ["Yaoundé","Douala","Garoua"];
-    const topPlaces = ["Waza zoo - Garoua","Douche Place - Douala","Beach - Kribi"];
+    var city="";
+    const cities =['yaounde','cairo', 'addis ababa','dakar','lusaka'];
+    var popularCities=[];
+    const manyPopularCities = [["Yaoundé","Douala","Garoua"],
+                            ["Cairo","Luxor","Alexandria"],
+                            ["Addis Ababa","Bahir Dar","Axum"],
+                            ["Dakar","Mbour","Popenguine"],
+                            ["Livingstone","Lusaka","Siavonga"],
+                        ];
+    var topPlaces = [];
+    const manyTopPlaces = [
+                    ["Mount Cameroon","Mefou National Park","Mankon Museum"],
+                    ["Pyramids of Giza","Nubian Desert","Mahmya Island"],
+                    ["Addis Mercato","Fasil Ghebbi","Menelik II Square"],
+                    ["Mosque of the Divinity","Lago Rosa","Ngor Island"],
+                    ["Victoria Falls","Gorge Swing","Mukuni Village"],
+                
+                ];
     
-    // these three constants are use in fetchRestCountriesInformation function
-    const urlRestCountry = 'https://restcountries.eu/rest/v2/alpha/'+isoTwoCode;
-    const urlCovidData = 'https://covid19-api.org/api/status/'+isoTwoCode;
-    const urlWeatherData = 'https://api.openweathermap.org/data/2.5/weather?q='+city+'&appid=dfef8e6748c0490f42caed2456ead4a1';
-    // for Unsplash call API
-    const urlUnsplash = 'https://api.unsplash.com/search/photos?query='+country+'&client_id=SwMNKvf-QEsIHr99Onvq9nUQ0IeO6bVMuoPaNNKDH0E';
+    var urlRestCountry = '';
+    var urlCovidData ='';
+    var urlWeatherData = '';
+    var urlUnsplash ='';
 
+    switch (country){
+        case "cameroon":
+            isoTwoCode = manyIsoTwoCode[0];
+            city = cities[0];
+            popularCities = manyPopularCities[0];
+            topPlaces = manyTopPlaces[0];
+
+            // these three constants are use in fetchRestCountriesInformation function
+            urlRestCountry = 'https://restcountries.eu/rest/v2/alpha/'+isoTwoCode;
+            urlCovidData = 'https://covid19-api.org/api/status/'+isoTwoCode;
+            urlWeatherData = 'https://api.openweathermap.org/data/2.5/weather?q='+city+'&appid=dfef8e6748c0490f42caed2456ead4a1';
+            // for Unsplash call API
+            urlUnsplash = 'https://api.unsplash.com/search/photos?query='+country+'&client_id=SwMNKvf-QEsIHr99Onvq9nUQ0IeO6bVMuoPaNNKDH0E';
+        break;
+        case "egypt":
+            isoTwoCode = manyIsoTwoCode[1];
+            city = cities[1];
+            popularCities = manyPopularCities[1];
+            topPlaces = manyTopPlaces[1];
+
+            // these three constants are use in fetchRestCountriesInformation function
+            urlRestCountry = 'https://restcountries.eu/rest/v2/alpha/'+isoTwoCode;
+            urlCovidData = 'https://covid19-api.org/api/status/'+isoTwoCode;
+            urlWeatherData = 'https://api.openweathermap.org/data/2.5/weather?q='+city+'&appid=dfef8e6748c0490f42caed2456ead4a1';
+            // for Unsplash call API
+            urlUnsplash = 'https://api.unsplash.com/search/photos?query='+country+'&client_id=SwMNKvf-QEsIHr99Onvq9nUQ0IeO6bVMuoPaNNKDH0E';
+        break;
+
+        case "ethiopia":
+            isoTwoCode = manyIsoTwoCode[2];
+            city = cities[2];
+            popularCities = manyPopularCities[2];
+            topPlaces = manyTopPlaces[2];
+
+            // these three constants are use in fetchRestCountriesInformation function
+            urlRestCountry = 'https://restcountries.eu/rest/v2/alpha/'+isoTwoCode;
+            urlCovidData = 'https://covid19-api.org/api/status/'+isoTwoCode;
+            urlWeatherData = 'https://api.openweathermap.org/data/2.5/weather?q='+city+'&appid=dfef8e6748c0490f42caed2456ead4a1';
+            // for Unsplash call API
+            urlUnsplash = 'https://api.unsplash.com/search/photos?query='+country+'&client_id=SwMNKvf-QEsIHr99Onvq9nUQ0IeO6bVMuoPaNNKDH0E';
+        break;
+        case "senegal":
+            isoTwoCode = manyIsoTwoCode[3];
+            city = cities[3];
+            popularCities = manyPopularCities[3];
+            topPlaces = manyTopPlaces[3];
+
+            // these three constants are use in fetchRestCountriesInformation function
+            urlRestCountry = 'https://restcountries.eu/rest/v2/alpha/'+isoTwoCode;
+            urlCovidData = 'https://covid19-api.org/api/status/'+isoTwoCode;
+            urlWeatherData = 'https://api.openweathermap.org/data/2.5/weather?q='+city+'&appid=dfef8e6748c0490f42caed2456ead4a1';
+            // for Unsplash call API
+            urlUnsplash = 'https://api.unsplash.com/search/photos?query='+country+'&client_id=SwMNKvf-QEsIHr99Onvq9nUQ0IeO6bVMuoPaNNKDH0E';
+        break;
+
+        case "zambia":
+            isoTwoCode = manyIsoTwoCode[4];
+            city = cities[4];
+            popularCities = manyPopularCities[4];
+            topPlaces = manyTopPlaces[4];
+
+            // these three constants are use in fetchRestCountriesInformation function
+            urlRestCountry = 'https://restcountries.eu/rest/v2/alpha/'+isoTwoCode;
+            urlCovidData = 'https://covid19-api.org/api/status/'+isoTwoCode;
+            urlWeatherData = 'https://api.openweathermap.org/data/2.5/weather?q='+city+'&appid=dfef8e6748c0490f42caed2456ead4a1';
+            // for Unsplash call API
+            urlUnsplash = 'https://api.unsplash.com/search/photos?query='+country+'&client_id=SwMNKvf-QEsIHr99Onvq9nUQ0IeO6bVMuoPaNNKDH0E';
+        break;
+
+    }
+    /*
+    if (country === "cameroon") {
+
+        isoTwoCode = manyIsoTwoCode[0];
+        city = cities[0];
+        popularCities = manyPopularCities[0];
+        topPlaces = manyTopPlaces[0];
+
+        // these three constants are use in fetchRestCountriesInformation function
+        urlRestCountry = 'https://restcountries.eu/rest/v2/alpha/'+isoTwoCode;
+        urlCovidData = 'https://covid19-api.org/api/status/'+isoTwoCode;
+        urlWeatherData = 'https://api.openweathermap.org/data/2.5/weather?q='+city+'&appid=dfef8e6748c0490f42caed2456ead4a1';
+        // for Unsplash call API
+        urlUnsplash = 'https://api.unsplash.com/search/photos?query='+country+'&client_id=SwMNKvf-QEsIHr99Onvq9nUQ0IeO6bVMuoPaNNKDH0E';
+    
+    } else if(country === "egypt"){
+
+        isoTwoCode = manyIsoTwoCode[1];
+        city = cities[1];
+        popularCities = manyPopularCities[1];
+        topPlaces = manyTopPlaces[1];
+
+        // these three constants are use in fetchRestCountriesInformation function
+        urlRestCountry = 'https://restcountries.eu/rest/v2/alpha/'+isoTwoCode;
+        urlCovidData = 'https://covid19-api.org/api/status/'+isoTwoCode;
+        urlWeatherData = 'https://api.openweathermap.org/data/2.5/weather?q='+city+'&appid=dfef8e6748c0490f42caed2456ead4a1';
+        // for Unsplash call API
+        urlUnsplash = 'https://api.unsplash.com/search/photos?query='+country+'&client_id=SwMNKvf-QEsIHr99Onvq9nUQ0IeO6bVMuoPaNNKDH0E';
+
+    }
+*/
     function countryInformationHTML(restCountry,covidData,weatherData){
         // print languages if there is more than one
         var i;
@@ -141,7 +257,7 @@ $(document).ready(function(){
                             <h5>${popularCities[i]}</h5>
                         </div>
                     </div>
-                    <div class=" margin-40"></div>
+                    <div class=" margin-20"></div>
                 </div>`
            /* console.log(columnCityThumbnail); */
         }
