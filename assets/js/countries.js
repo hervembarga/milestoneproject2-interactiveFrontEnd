@@ -103,37 +103,7 @@ $(document).ready(function(){
         break;
 
     }
-    /*
-    if (country === "cameroon") {
 
-        isoTwoCode = manyIsoTwoCode[0];
-        city = cities[0];
-        popularCities = manyPopularCities[0];
-        topPlaces = manyTopPlaces[0];
-
-        // these three constants are use in fetchRestCountriesInformation function
-        urlRestCountry = 'https://restcountries.eu/rest/v2/alpha/'+isoTwoCode;
-        urlCovidData = 'https://covid19-api.org/api/status/'+isoTwoCode;
-        urlWeatherData = 'https://api.openweathermap.org/data/2.5/weather?q='+city+'&appid=dfef8e6748c0490f42caed2456ead4a1';
-        // for Unsplash call API
-        urlUnsplash = 'https://api.unsplash.com/search/photos?query='+country+'&client_id=SwMNKvf-QEsIHr99Onvq9nUQ0IeO6bVMuoPaNNKDH0E';
-    
-    } else if(country === "egypt"){
-
-        isoTwoCode = manyIsoTwoCode[1];
-        city = cities[1];
-        popularCities = manyPopularCities[1];
-        topPlaces = manyTopPlaces[1];
-
-        // these three constants are use in fetchRestCountriesInformation function
-        urlRestCountry = 'https://restcountries.eu/rest/v2/alpha/'+isoTwoCode;
-        urlCovidData = 'https://covid19-api.org/api/status/'+isoTwoCode;
-        urlWeatherData = 'https://api.openweathermap.org/data/2.5/weather?q='+city+'&appid=dfef8e6748c0490f42caed2456ead4a1';
-        // for Unsplash call API
-        urlUnsplash = 'https://api.unsplash.com/search/photos?query='+country+'&client_id=SwMNKvf-QEsIHr99Onvq9nUQ0IeO6bVMuoPaNNKDH0E';
-
-    }
-*/
     function countryInformationHTML(restCountry,covidData,weatherData){
         // print languages if there is more than one
         var i;
@@ -344,7 +314,7 @@ $(document).ready(function(){
       let infoWindow;
       let markers = [];
       let autocomplete;
-      const countryRestrict = { country: "cm" };
+      
       const MARKER_PATH =
         "https://developers.google.com/maps/documentation/javascript/images/marker_green";
       const hostnameRegexp = new RegExp("^https?://.+?/");
@@ -370,16 +340,81 @@ $(document).ready(function(){
           zoom: 5.5,
         }
       };
+      let countryRestrict = { };
+      const pageCountry = document.body.id;
 
       function initMap() {
-        map = new google.maps.Map(document.getElementById("mymap"), {
-          zoom: countries["cm"].zoom,
-          center: countries["cm"].center,
-          mapTypeControl: false,
-          panControl: false,
-          zoomControl: false,
-          streetViewControl: false,
-        });
+
+        switch (pageCountry){
+            case "cameroon":
+            
+            countryRestrict = { country: "cm" };
+            map = new google.maps.Map(document.getElementById("mymap"), {
+            zoom: countries["cm"].zoom,
+            center: countries["cm"].center,
+            mapTypeControl: false,
+            panControl: false,
+            zoomControl: false,
+            streetViewControl: false,
+            });
+            break;
+
+            case "egypt":
+            
+            countryRestrict = { country: "eg" };
+            map = new google.maps.Map(document.getElementById("mymap"), {
+            zoom: countries["eg"].zoom,
+            center: countries["eg"].center,
+            mapTypeControl: false,
+            panControl: false,
+            zoomControl: false,
+            streetViewControl: false,
+            });
+            break;
+
+            case "ethiopia":
+            
+            countryRestrict = { country: "et" };
+            map = new google.maps.Map(document.getElementById("mymap"), {
+            zoom: countries["et"].zoom,
+            center: countries["et"].center,
+            mapTypeControl: false,
+            panControl: false,
+            zoomControl: false,
+            streetViewControl: false,
+            });
+            break;
+
+            case "senegal":
+            
+            countryRestrict = { country: "sn" };
+            map = new google.maps.Map(document.getElementById("mymap"), {
+            zoom: countries["sn"].zoom,
+            center: countries["sn"].center,
+            mapTypeControl: false,
+            panControl: false,
+            zoomControl: false,
+            streetViewControl: false,
+            });
+            break;
+
+            case "zambia":
+            
+            countryRestrict = { country: "zm" };
+            map = new google.maps.Map(document.getElementById("mymap"), {
+            zoom: countries["zm"].zoom,
+            center: countries["zm"].center,
+            mapTypeControl: false,
+            panControl: false,
+            zoomControl: false,
+            streetViewControl: false,
+            });
+            break;
+        }
+
+    console.log("My googlemaps country is "+pageCountry);
+        
+
         infoWindow = new google.maps.InfoWindow({
           content: document.getElementById("info-content"),
         });
