@@ -7,11 +7,48 @@ body {
     color:#fff;
 }
 
+/* map index page */
+
+.map {
+  margin-left: auto;
+  margin-right: auto;
+  border: 0.25rem solid rgb(77, 167, 77);
+  border-radius: 0.6rem;
+}
+
 .main-bg {
     background-color: white;
 }
-.header-image{
+/* Header images for each country */
+.header-image-country1{
     position: relative;
+    background: url("../img/foumbot-cameroon.jpg") no-repeat center;
+    background-size: cover;
+    min-height: 250px;
+}
+.header-image-country2{
+    position: relative;
+    background: url("../img/cairo-egypt.jpg") no-repeat center;
+    background-size: cover;
+    min-height: 250px;
+}
+.header-image-country3{
+    position: relative;
+    background: url("../img/addisAbaba-ethiopia.jpg") no-repeat center;
+    background-size: cover;
+    min-height: 250px;
+}
+.header-image-country4{
+    position: relative;
+    background: url("../img/koalack-senegal.jpg") no-repeat center;
+    background-size: cover;
+    min-height: 250px;
+}
+.header-image-country5{
+    position: relative;
+    background: url("../img/southluengwa.jpg") no-repeat center;
+    background-size: cover;
+    min-height: 250px;
 }
 .centered-text {
   position: absolute;
