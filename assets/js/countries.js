@@ -259,7 +259,7 @@ $(document).ready(function(){
                             <h5>${topPlaces[i-3]}</h5>
                         </div>
                     </div>
-                    <div class=" margin-40"></div>
+                    <div class=" margin-20"></div>
                 </div>`
             console.log(columnPlaceThumbnail);
         }
@@ -302,10 +302,7 @@ $(document).ready(function(){
     fetchRestCountriesInformation();
     fetchPhotosUnsplash();
 
-
-
 });
-
 
     // google Maps
 
@@ -412,8 +409,6 @@ $(document).ready(function(){
             break;
         }
 
-    console.log("My googlemaps country is "+pageCountry);
-        
 
         infoWindow = new google.maps.InfoWindow({
           content: document.getElementById("info-content"),
@@ -459,7 +454,6 @@ $(document).ready(function(){
           if (status === google.maps.places.PlacesServiceStatus.OK) {
             clearResults();
             clearMarkers();
-
             // Create a marker for each hotel found, and
             // assign a letter of the alphabetic to each marker icon.
             for (let i = 0; i < results.length; i++) {
@@ -487,7 +481,7 @@ $(document).ready(function(){
           }
         });
       }
-
+      
       function clearMarkers() {
         for (let i = 0; i < markers.length; i++) {
           if (markers[i]) {
@@ -514,20 +508,22 @@ $(document).ready(function(){
         clearResults();
         clearMarkers();
       }
-
+     
       function dropMarker(i) {
         return function () {
           markers[i].setMap(map);
         };
       }
-
+      
+       
       function addResult(result, i) {
+        
+        document.getElementById("listing").style.display = "block";   
         const results = document.getElementById("results");
         const markerLetter = String.fromCharCode("A".charCodeAt(0) + (i % 26));
         const markerIcon = MARKER_PATH + markerLetter + ".png";
         const tr = document.createElement("tr");
         tr.style.backgroundColor = i % 2 === 0 ? "#F0F0F0" : "#FFFFFF";
-
         tr.onclick = function () {
           google.maps.event.trigger(markers[i], "click");
         };

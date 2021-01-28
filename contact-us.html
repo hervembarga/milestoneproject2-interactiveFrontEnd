@@ -62,7 +62,12 @@
     
     <section>
         <div class="container-fluid">
-          
+            <div id="emailNotification" style="display: none;" class="alert text-center alert-dismissible fade show" role="alert">
+                <h5 id="email-alert"></h5>
+                <button type="button" class="close" aria-hidden="true" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
             <div class="row contact-us-text" >
                 <form id="sendMail" onsubmit="return sendMail(this);" class="contact-form">
                     <div class="form-row">
@@ -72,9 +77,8 @@
                         <input type="text" name="phone" class="form-control form-element" placeholder="Phone" required/>
                         </div>
                         <div class="col-sm-6 col-md-8 col-adjust">
-
-                        <textarea class="form-control form-element"  name="message" id="message" rows="4" placeholder="Write Your text here" required></textarea>
-                        <button type="submit" class="form-control btn form-element">Send</button>
+                            <textarea class="form-control form-element"  name="message" id="message" rows="4" placeholder="Write Your text here" required></textarea>
+                            <button type="submit" class="form-control btn form-element">Send</button>
                         </div>
                     </div>    
                 </form>      

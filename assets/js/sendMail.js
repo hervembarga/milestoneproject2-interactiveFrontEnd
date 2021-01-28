@@ -8,9 +8,16 @@ function sendMail(contactForm){
     .then(
         function (response){
             console.log("SUCCESS", response);
+            document.getElementById("emailNotification").style.display = "block";
+            document.getElementById("emailNotification").classList.add('email-succes');
+            document.getElementById("email-alert").innerHTML =" Your message has be sent";
         },
         function (error){
             console.log("FAILED", error);
+            document.getElementById("emailNotification").style.display = "block";
+            document.getElementById("emailNotification").classList.add('email-failed');
+            document.getElementById("email-alert").innerHTML ="Message not sent. Please try again";
+            
         }); 
         
             console.log(contactForm.name.value);     

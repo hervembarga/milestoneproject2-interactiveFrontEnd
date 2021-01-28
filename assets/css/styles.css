@@ -10,10 +10,11 @@ body {
 /* map index page */
 
 .map {
-  margin-left: auto;
-  margin-right: auto;
   border: 0.25rem solid rgb(77, 167, 77);
   border-radius: 0.6rem;
+}
+#listing {
+    display: none;
 }
 
 .main-bg {
@@ -62,18 +63,18 @@ body {
   text-shadow: 2px 2px 6px #696969;
   letter-spacing: 4px;
 }
+.carousel-caption h2 {
+  text-shadow: 2px 2px 6px #272626;  
+}
 .box {
   position: relative;
 
-  /* desired width */
- 
 }
 .box:before {
   content: "";
   display: block;
   padding-top: 60%;
 
-  /* initial ratio of 1:1*/
 }
 
 .content {
@@ -90,6 +91,21 @@ body {
   object-fit: cover;
   object-position: center 60%;
   position: absolute;
+}
+
+/* set the video window */
+.content iframe {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 80%;
+  position: absolute;
+}
+/* align video to center */
+
+.home-video {
+    margin-left: auto;
+    margin-right: auto;
 }
 
 /* Set the temperature font bigger*/
@@ -183,4 +199,20 @@ button.form-element:hover{
 }
 textarea.form-element{
     height: 5.62rem;
+}
+#emailNotification{
+    width: 80vw;
+    margin-left: auto;
+    margin-right: auto;
+}
+   
+.email-succes{
+     color: #ffd230;
+    background-color: #139D08;
+    border: 2px solid #d4ad00;
+}
+.email-failed{
+     color: #ffd230;
+    background-color: red;
+    border: 2px solid #ffd230;
 }
