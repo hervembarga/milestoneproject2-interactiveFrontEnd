@@ -44,7 +44,7 @@ function initMap() {
           title: country.title
         });
         marker.addListener("click", () => {
-        window.open("/"+country.url);
+        window.open("/milestoneproject2-interactiveFrontEnd/"+country.url);
         });
     });
       }

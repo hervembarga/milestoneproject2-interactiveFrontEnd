@@ -10,7 +10,7 @@ function sendMail(contactForm){
             console.log("SUCCESS", response);
             document.getElementById("emailNotification").style.display = "block";
             document.getElementById("emailNotification").classList.add('email-succes');
-            document.getElementById("email-alert").innerHTML =" Your message has be sent";
+            document.getElementById("email-alert").innerHTML =" Your message has been sent";
         },
         function (error){
             console.log("FAILED", error);
