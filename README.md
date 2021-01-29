@@ -108,6 +108,10 @@ The W3C Markup Validator and W3C CSS Validator Services were used to validate ev
 -   Google Chrome, Firefox, Microsoft Edge and Opera browsers.
 -   A large amount of testing was done to ensure that all pages were linking correctly.
 
+### Known Bugs
+
+-   Covid19-api sometimes has server error (500).
+
 ## Deployment
 
 ### GitHub Pages
